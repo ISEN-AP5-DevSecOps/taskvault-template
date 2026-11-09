@@ -1,0 +1,27 @@
+# [VULN] manifeste volontairement mal configuré - à analyser avec Checkov / Trivy config (TD5)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskvault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taskvault
+  template:
+    metadata:
+      labels:
+        app: taskvault
+    spec:
+      containers:
+        - name: taskvault
+          image: taskvault:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_PASSWORD
+              value: "P@ssw0rd2024!"
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            allowPrivilegeEscalation: true
