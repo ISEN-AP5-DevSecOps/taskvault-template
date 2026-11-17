@@ -15,6 +15,8 @@ pytest -v
 
 Comptes de test : `alice / alice123`, `bob / bob123`.
 
+Rappel des commandes Git : [MEMO_GIT.md](MEMO_GIT.md).
+
 ## Contenu
 
 | Fichier | Rôle | TD |
